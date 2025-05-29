@@ -46,6 +46,30 @@ h1{
     margin-top: 5px;
 }
 
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+  }
+  
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+    padding: 8px;
+    font-size: 14px;
+    display: none;
+  }
+  
+  .image-wrapper:hover .description {
+    display: block;
+  }
+  
+
 /*Media Query: Large Cellphone*/
 
 /*anything less than 600px will apply styling*/
