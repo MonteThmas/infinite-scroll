@@ -1,5 +1,4 @@
 const imageContainer = document.getElementById('image-container');
-const imageWrapper = document.getElementById('image-wrapper')
 const loader = document.getElementById('loader');
 
 let ready = false;
@@ -38,6 +37,11 @@ function displayPhotos() {
     totalImages = photosArray.length;
     // Run function for each object in photosArray
     photosArray.forEach((photo) => {
+
+        // Create wrapper for image and description
+        const imageWrapper = document.createElement('div');
+        imageWrapper.classList.add('image-wrapper');
+
         //create <a> to link to Unsplash
         const item = document.createElement('a');
         setAttributes(item, {
@@ -51,14 +55,21 @@ function displayPhotos() {
             src: photo.urls.regular,
             alt: photo.alt_description,
             title: photo.alt_description,
-        });
+        })
 
         //Event listener , check when each image is finished loading
-        img.addEventListener('load', imageLoaded)
+        img.addEventListener('load', imageLoaded);
+
+        // Create description div
+        const description = document.createElement('div');
+        description.classList.add('description');
+        description.textContent = photo.alt_description
+
         
         // Put <img> inside <a>, then added both inside imageContainer elem
         item.appendChild(img);
         imageWrapper.appendChild(item);
+        imageWrapper.appendChild(description);
         imageContainer.appendChild(imageWrapper);
     });
 }
