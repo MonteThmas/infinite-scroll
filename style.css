@@ -52,23 +52,38 @@ h1{
     margin: 10px;
   }
   
-.description {
+  .image-wrapper img {
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  /* Description initially hidden with opacity */
+  .description {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    text-align: center;
     padding: 8px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
     font-size: 14px;
-    display: none;
+    text-align: center;
+    opacity: 0;                /* Hidden */
+    transition: opacity 0.3s ease-in-out;  /* Smooth transition */
+    pointer-events: none;      /* Avoid blocking hover */
+    border-radius: 0 0 8px 8px;
   }
   
+  /* On hover, fade in */
   .image-wrapper:hover .description {
-    display: block;
+    opacity: 1;
   }
-  
+  .image-wrapper:hover img {
+    transform: scale(1.02);
+    filter: brightness(70%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
 
 /*Media Query: Large Cellphone*/
 
